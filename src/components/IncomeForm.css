@@ -1,0 +1,19 @@
+.income-form, .expense-form{
+    width: auto;
+    height: auto;
+    background-color: #FFFFFF00;
+}
+
+.form-container > input[type="submit"] {
+    color: #ffffff;
+    width: 200px;
+    height: 60px;
+}
+
+.red-button{
+    background-color: #E12323;
+
+}
+.green-button{
+    background-color: #3DE123;
+}
