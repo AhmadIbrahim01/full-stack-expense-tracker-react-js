@@ -1,62 +1,52 @@
-.container{
+form{
     width: 60%;
-    display: block;
-    margin: auto;
-    background-color: #fff;
-    padding-bottom: 30px;
+    height: 400px;
+    background-color: #3d3d3d;
     border-radius: 12px;
 }
 
-.header{
-    gap: 9px;
-    width: 100%;
-    margin-top: 30px;
+h2,h3{
+    color: #3DE123;
+    margin: 1%;
 }
 
-.text{
-    color:#3DE123;
-    font-size: 48px;
-    font-weight: 700;
+h2{
+    font-size: 40px;
+}
+h3{
+    font-size: 30px;
 }
 
-.underline{
-    width: 60px;
-    height: 6px;
-    background: #3DE123;
-    border-radius: 9px;
+.label{
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 1%;
 }
 
-.inputs{
-    margin-top: 55px;
-    gap: 25px;
+.successful{
+    color: #3DE123;
+    margin: 1%;
+}
+.failed{
+    color: #FF0000;
+    margin: 1%;
 }
 
 .input{
     align-items: center;
     margin: auto;
-    width: 480px;
-    height: 80px;
+    width: 300px;
+    height: 40px;
     background-color: #eaeaea;
     border-radius: 6px;
-}
-
-.input img{
-    margin: 0px 30px;
-}
-
-.input input{
-    height: 50px;
-    width: 400px;
-    background: transparent;
-    border: none;
     outline: none;
-    color: #797979;
+    border: none;
     font-size: 19px;
+    padding-left: 1%;
+    margin: 3% auto;
 }
-.submit-container{
-    gap: 30px;
-    margin: 60px auto;
-}
+
 .submit{
     width: 220px;
     height: 60px;

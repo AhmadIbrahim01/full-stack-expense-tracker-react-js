@@ -1,6 +1,4 @@
 <?php
-
-
 // Allow requests from any origin
 header("Access-Control-Allow-Origin: *");
 // Allow specific HTTP methods
@@ -14,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-
 include "connection.php";
 
+// Get the raw POST data
 $data = json_decode(file_get_contents('php://input'), true);
 $username = $data['username'];
 $password = $data['password'];
@@ -24,10 +22,10 @@ $password = $data['password'];
 $query = "SELECT * FROM users WHERE username = '$username'";
 $result = $connection->query($query);
 
-if($result->num_rows >0){
+if($result->num_rows > 0){
     $user = $result->fetch_assoc();
 
-    if($password == $user["password"]){
+    if (password_verify($password, $user["password"])) {
         echo json_encode([
             "status" => "Login Successful",
             "user" => $user,
@@ -40,6 +38,7 @@ if($result->num_rows >0){
 
 } else {
     echo json_encode([
-        "status" => "Login Faileed",
+        "status" => "Login Failed",
     ]);
 }
+?>
