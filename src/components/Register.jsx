@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import "../styles/base/base.css";
 import "../components/Login.css";
 
@@ -8,7 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [user, setUser] = useState(null);
+  const navigate = useNavigate();  // Hook for navigation
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -30,9 +31,9 @@ const Register = () => {
 
       if (data.status === 'Account Created and Logged In') {
         setMessage('Registration Successful, Welcome!');
-        setUser(data.user);
+        navigate('/login');  // Redirect to login page after registration
       } else {
-        setMessage('Registration Failed');
+        setMessage(data.status || 'Registration Failed');
       }
     } catch (error) {
       setMessage('Error: Could not connect to the server');
@@ -76,15 +77,9 @@ const Register = () => {
         <button className='submit' type="submit">Register</button>
       </form>
 
+      <p>Already have an account? <a href="/Login">Login here</a></p>
+
       <div className={message.includes("Successful") ? "successful" : "failed"}>{message}</div>
-
-      {user && (
-        <div>
-          <h3>Welcome, {user.username}</h3>
-        </div>
-      )}
-
-      <p>Already have an account? <a href="/">Login here</a></p>
     </div>
   );
 };

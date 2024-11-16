@@ -3,6 +3,12 @@
     margin-top: 3%;
 }
 
+h1{
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 1%;
+}
+
 .card{
     background-color: #D9d9d9;
     width: 250px;
@@ -23,3 +29,22 @@
 .green{
     color: #3DE123;
 }
+
+
+.form-container{
+    gap: 20px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.form-container > input, .form-container > select{
+    width: 250px;
+    height: 60px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding-left: 10px;
+    font-family: "Joan";
+}
+

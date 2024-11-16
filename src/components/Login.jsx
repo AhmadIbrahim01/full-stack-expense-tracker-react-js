@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import "../styles/base/base.css";
 import "../components/Login.css";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [user, setUser] = useState(null);
+  const navigate = useNavigate();  // Hook for navigation
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -19,10 +20,12 @@ const Login = () => {
       });
 
       const data = response.data;
-      console.log(data)
+      console.log(data);
+
       if (data.status === 'Login Successful') {
         setMessage('Login Successful');
-        setUser(data.user);
+        setUser(data.user);  // Store the user information in App's state
+        navigate('/');  // Navigate to Home page
       } else {
         setMessage('Login Failed');
       }
@@ -46,7 +49,7 @@ const Login = () => {
           />
         </div>
         <div className='flex column'>
-          <label  className='label'>Password</label>
+          <label className='label'>Password</label>
           <input
             type="password"
             value={password}
@@ -58,16 +61,10 @@ const Login = () => {
         <button className='submit' type="submit">Login</button>
       </form>
 
-      <div className={message.includes("Login Successful") ?"successful":"failed"}>{message}</div>
-
-      {user && (
-        <div>
-          <h3>Welcome, {user.username}</h3>
-        </div>
-      )}
-
       <p>Create an account <a href="/register">Registe here</a></p>
 
+
+      <div className={message.includes("Login Successful") ? "successful" : "failed"}>{message}</div>
     </div>
   );
 };
