@@ -1,0 +1,41 @@
+
+table{
+    width: 90%;
+    border: 1px solid black;
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: #D9d9d9;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 200px;
+    font-family: "Joan";
+}
+
+tr{
+    /* width: 100%; */
+    border: 1px solid black;
+}
+th{
+    font-size: 30px;
+    border: 1px solid black;
+
+}
+th, td{
+    width: 10%;
+    padding: 1%;
+}
+
+
+td > button{
+    padding: 2%;
+    width: 50px;
+    background-color: #3DE123;
+    color: white;
+    border-radius: 10px;
+}
+
+td > button:last-child{
+    background-color: #E12323;
+}
+
