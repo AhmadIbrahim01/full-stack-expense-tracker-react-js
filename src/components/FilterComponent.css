@@ -1,0 +1,16 @@
+
+.filter-div{
+    text-align: center;
+    margin-bottom: 2%;
+}
+.filter-div > label{
+    font-size: 20px;
+    color: #ffffff;
+}
+.filter-div > button{
+    font-size: 20px;
+    background-color: #ffffff;
+    width: 100px;
+    border-radius: 10px;
+    margin-right: 1%;
+}
