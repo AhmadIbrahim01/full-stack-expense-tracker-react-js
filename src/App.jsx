@@ -13,8 +13,6 @@ function App() {
 
   return (
     <Router>  
-      
-      {/* <Main /> */}
       <Routes>
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register />} />

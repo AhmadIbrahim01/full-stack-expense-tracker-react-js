@@ -8,7 +8,7 @@ import FilterComponent from "./FilterComponent";
 import TransactionTable from "./TransactionTable";
 
 
-export const Main = ({username}) =>{
+export const Main = ({username, userId}) =>{
     return(
         <>
             <h1 style={{textAlign:"center", color:"#FFF"}}>Welcome {username} to your account</h1>
@@ -22,7 +22,7 @@ export const Main = ({username}) =>{
             <IncomeForm/>
             <ExpenseForm/>
             <FilterComponent/>
-            <TransactionTable/>
+            <TransactionTable  userId={userId}/>
             
         </>
     )

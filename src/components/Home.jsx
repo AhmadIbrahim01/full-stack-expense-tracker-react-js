@@ -14,7 +14,7 @@ const Home = ({ user }) => {
     <div className="home-container">
       {user ? (
         <>
-          <Main username={user.username}/>
+          <Main username={user.username} userId={user.id}/>
         </>
       ) : (
         <h2>Please log in to access the home page. <a href="/Login">Login here</a> </h2>

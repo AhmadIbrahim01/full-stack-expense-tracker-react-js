@@ -1,7 +1,36 @@
 import React from 'react';
 import "./TransactionTable.css"
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-const TransactionTable = ({ transactions }) => {
+const TransactionTable = ({ transactions, userId }) => {
+
+
+    const [expenses, setExpenses] = useState([]);
+    const [message, setMessage] = useState('');
+  
+    useEffect(() => {
+      const fetchExpenses = async () => {
+        try {
+          const response = await axios.post('http://localhost/full-stack-expense-tracker-react-js/server/api/getExpenses.php', {
+            user_id: userId
+          });
+  
+          const data = response.data;
+          if (data.status === 'Expenses Retrieved Successfully') {
+            setExpenses(data.expenses);
+          } else {
+            setMessage(data.status);
+          }
+        } catch (error) {
+          setMessage('Error: Could not connect to the server');
+        }
+      };
+  
+      fetchExpenses();
+    }, [userId]);
+
+
   return (
     <table id="table">
       <thead>
@@ -14,7 +43,7 @@ const TransactionTable = ({ transactions }) => {
         </tr>
       </thead>
       <tbody>
-        {   false
+        {   userId
             &&
             transactions.map((transaction, index) => (
                 <tr key={index}>
